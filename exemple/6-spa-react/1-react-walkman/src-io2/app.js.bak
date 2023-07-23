@@ -1,0 +1,55 @@
+import styled from "styled-components";
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  color: purple;
+`;
+const Stitle = styled.h3`
+  font-size: 1.1em;
+  color: DarkOrchid;
+`;
+// surcharge
+const Stitle2 = styled(Stitle)`
+  color: Thistle;
+  font-variant: small-caps;
+`;
+const Link = styled.a`
+  background-image: linear-gradient(crimson, orangered);
+  background-size: 0 4px, 0 2px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: background-size 0.5s linear;
+  &:hover {
+    background-size: 100% 2px, 100% 2px;
+  }
+`;
+const Parag = styled.blockquote`
+  font-size: 0.9em;
+  color: ${(props) => props.theme.texte};
+  letter-spacing: 0.5em;
+  font-family: "Akaya Telivigala", cursive;
+  @media (max-width: 50em) {
+    color: ${(props) => props.theme.textepetit};
+  }
+`;
+const theme = {
+  texte: "orangered",
+  textepetit: "MediumVioletRed",
+};
+function App() {
+  return (
+    <>
+      <Title>Le tatoué</Title>
+      <Stitle>1968</Stitle>
+      <Stitle2> Denys de La Patellière</Stitle2>
+      <Parag theme={theme}>
+        {"« "}
+        Manger des tripes sans cidre, c'est comme aller à Dieppe sans voir la
+        mer{" »"}
+      </Parag>
+      <Link href="/">Hover Change</Link>
+    </>
+  );
+}
+export default App;

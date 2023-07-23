@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React.JS</title>
+		<meta name="description" content="React.JS." />
+		<meta name="keywords" content="menu, navigation, hover, effect, animation, javascript, css, web design" />
+		<meta name="author" content="sbrunet" />
+		<link rel="icon" type="image/png" href="../00-modele/chapoulougne.png" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Quicksand:500" rel="stylesheet">
+		<link rel="stylesheet"  href="../00-modele/css/normalize.css" />
+		<link rel="stylesheet"  href="../00-modele/css/demo.css" />
+		<link rel="stylesheet"  href="../00-modele/css/style-menu.css" />
+
+		<link rel="stylesheet"  href="style.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
+	</head>
+	<body class="demo-ama"  onload="menu()">
+
+		<main>
+			<div class="content content--fixed">
+				<header class="codrops-header">
+
+					<h1 class="codrops-header__title">React.JS </h1>
+					<h2 class="title"> <span>Chap 04</span> State </h2>
+				</header>
+			</div>
+			<section class="content">
+				<nav class="menu menu--ama">
+					<!-- insertion du menu -->
+				</nav>
+				<article>
+				<h3> Hooks</h3>
+				Les Hooks sont une nouveauté de React 16.8. <br />
+				useRef.<br />
+
+		 	nous devons enregistrer quelque chose sur la console à un intervalle particulier lorsqu'un composant particulier est monté
+				 <article id="job"></article>
+				</article>
+			</section>
+		</main>
+		<script src="menu.js"></script>
+		<script src="../00-modele/js/charming.min.js"></script>
+		<script src="../00-modele/js/anime.min.js"></script>
+		<script src="../00-modele/js/demo.js"></script>
+		<script src="../00-modele/js/demo-ama.js"></script>
+		<script  src="../00-modele/js/react.development.js"></script>
+    <script  src="../00-modele/js/react-dom.development.js"></script>
+    <script  src="../00-modele/js/babel.js"></script>
+    <script type="text/babel">
+
+    //<![CDATA[
+		// le hook useState
+				const { render } = ReactDOM
+				const rootNode = document.querySelector("#job")
+				class Dog {
+				  setName(name) {
+				    this.name = name;
+				  }
+
+				  bark() {
+				    alert("Woof! I'm " + this.name);
+				  }
+				}
+				//gardez une variable statique qui ne sera pas recréée à
+				//chaque rendu.
+				//Mais en utilisant une référence, nous pourrons garder notre instance en vie
+				function App() {
+					const dogRef = React.useRef(new Dog());
+				  const [count, setCount] = React.useState(0);
+				  const simpleVariable = new Dog();
+
+				  return (
+				    <div className="App">
+				      <div>
+				        <h1 style={{ background: "teal" }}>🐶 No Ref :</h1>
+				        <button
+				          onClick={() => {
+				            simpleVariable.setName("Oliver");
+				            setCount((prevCount) => prevCount + 1);
+				          }}
+				          style={{ marginRight: 10 }}
+				        >
+				          First Click Here
+				        </button>
+				         {count} then
+				        <button
+				          style={{ marginLeft: 10 }}
+				          onClick={() => simpleVariable.bark()}
+				        >
+				          Bark
+				        </button>
+				      </div>
+
+				      <div>
+				        <h1 style={{ background: "teal" }}>🐶 Using Ref :</h1>
+				        <button
+				          onClick={() => {
+				            dogRef.current.setName("Rex");
+				            setCount((prevCount) => prevCount + 1);
+				          }}
+				          style={{ marginRight: 10 }}
+				        >
+				          First Click Here
+				        </button>
+				        then
+				        <button
+				          style={{ marginLeft: 10 }}
+				          onClick={() => dogRef.current.bark()}
+				        >
+				          Bark
+				        </button>
+				      </div>
+				    </div>
+				  );
+				}
+				render(<App/>, rootNode)
+  //  ]]>
+    </script>
+	</body>
+</html>

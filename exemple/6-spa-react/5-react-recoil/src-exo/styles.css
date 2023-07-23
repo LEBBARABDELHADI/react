@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.App time{
+  font-family: 'Inspiration', cursive;
+  font-size: 10vw;
+  color: orangered;
+}
+.App h4{
+  font-family: 'Inspiration', cursive;
+  font-size: 7vw;
+  color:teal;
+  margin: .2em;
+  font-weight: normal;
+}

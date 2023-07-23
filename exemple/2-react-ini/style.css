@@ -1,0 +1,16 @@
+.toto{
+	color : purple;
+}
+#titi{
+	background-color : ivory;
+}
+
+li.item:nth-child(even){
+	color : crimson;
+}
+p.toto[data-test='100']{
+	border: orange solid .5em;
+}
+p.toto:after{
+	content:attr(data-test);
+}

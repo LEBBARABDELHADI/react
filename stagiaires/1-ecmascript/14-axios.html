@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React.JS</title>
+		<meta name="description" content="React.JS." />
+		<meta name="keywords" content="menu, navigation, hover, effect, animation, javascript, css, web design" />
+		<meta name="author" content="sbrunet" />
+		<link rel="icon" type="image/png" href="../00-modele/chapoulougne.png" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Quicksand:500" rel="stylesheet">
+		<link rel="stylesheet"  href="../00-modele/css/normalize.css" />
+		<link rel="stylesheet"  href="../00-modele/css/demo.css" />
+		<link rel="stylesheet"  href="../00-modele/css/style-menu.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<style rel="stylesheet">
+		.blinking-cursor {
+			pointer-events: none;
+			user-select: none;
+			animation: blink 1s steps(2, start) infinite;
+			}
+				@keyframes blink {
+				to {
+					visibility: hidden;
+				}
+			}
+		</style>
+	</head>
+	<body class="demo-ama"  onload="menu()">
+
+		<main>
+			<div class="content content--fixed">
+				<header class="codrops-header">
+
+					<h1 class="codrops-header__title">React.JS </h1>
+					<h2 class="title"> <span>Chap 01</span> ES15</h2>
+				</header>
+			</div>
+			<section class="content">
+				<nav class="menu menu--ama">
+					<!-- insertion du menu -->
+				</nav>
+				<article>
+				<h3>Axios</h3>
+					une approche très populaire consiste à utiliser axios,
+					un client HTTP basé sur les Promesses.
+
+					<h1>HP</h1>
+
+					<input id="theInput" type="text"  value="Gryffindor" list="hp"/>
+					<datalist id="hp">
+						<option value="Gryffindor"></option>
+						<option value="slytherin"></option>
+						<option value="Hufflepuff"></option>
+						<option value="Ravenclaw"></option>
+
+					</datalist>
+					<button id="theButton">la maison</button>
+
+					<!-- the data we get from the API will be populated in here: -->
+					<h2 id="student"></h2>
+
+			</article>
+		</section>
+	</main>
+	<script src="menu.js"></script>
+	<script src="../00-modele/js/charming.min.js"></script>
+	<script src="../00-modele/js/anime.min.js"></script>
+	<script src="../00-modele/js/demo.js"></script>
+	<script src="../00-modele/js/demo-ama.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js'></script>
+	<script>
+		//<![CDATA
+		//à vous
+		baseURL: "http://hp-api.herokuapp.com/api/characters/house/"
+			//à vous
+
+			function getInfo(theName) {
+				restCountriesApi
+					.get(theName)
+					.then(responseFromAPI =>
+						{const donnees=			//à vous
+
+							console.info(donnees)
+						 const donneeshp=			//à vous
+
+						 const choixpeaux=			//à vous
+
+						 document.querySelector('#student').innerHTML=`L'elève  ${donneeshp} de la maison ${choixpeaux}`
+						 console.info("Response from API : ", donnees)}
+					)
+					.catch(err => console.log("Error is: ", err)
+				);
+			}
+			document.querySelector("#theButton").onclick = function() {
+				const maison = document.querySelector("#theInput").value;
+			//à vous
+			};
+			// ]]>
+		</script>
+	</body>
+</html>

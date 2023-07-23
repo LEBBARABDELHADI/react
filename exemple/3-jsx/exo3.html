@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React.JS</title>
+		<meta name="description" content="React.JS." />
+		<meta name="keywords" content="menu, navigation, hover, effect, animation, javascript, css, web design" />
+		<meta name="author" content="sbrunet" />
+		<link rel="icon" type="image/png" href="../00-modele/chapoulougne.png" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Quicksand:500" rel="stylesheet">
+		<link rel="stylesheet"  href="../00-modele/css/normalize.css" />
+		<link rel="stylesheet"  href="../00-modele/css/demo.css" />
+		<link rel="stylesheet"  href="../00-modele/css/style-menu.css" />
+		<link rel="stylesheet"  href="style-exo3.css" />
+
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
+	</head>
+	<body class="demo-ama"  onload="menu()">
+
+		<main>
+			<div class="content content--fixed">
+				<header class="codrops-header">
+
+					<h1 class="codrops-header__title">React.JS </h1>
+					<h2 class="title"> <span>Chap 05</span> Evenement</h2>
+				</header>
+			</div>
+			<section class="content">
+				<nav class="menu menu--ama">
+					<!-- insertion du menu -->
+				</nav>
+				<article>
+				<h3> Evenement</h3>
+				Formulaire <br />
+				Exercice<br />
+				finir le generateur de Formulaire<br />
+				avec un input type email<br />
+				un input type number<br />
+				un input type password<br />
+				un input type submit<br />
+				un select <br />
+				une datalist (fait) <br />
+				une zone de texte <br />
+				un case à cocher <br />
+				deux boutons radio
+
+					<article class="form"></article>
+				</article>
+			</section>
+		</main>
+		<script src="menu.js"></script>
+		<script src="../00-modele/js/charming.min.js"></script>
+		<script src="../00-modele/js/anime.min.js"></script>
+		<script src="../00-modele/js/demo.js"></script>
+		<script src="../00-modele/js/demo-ama.js"></script>
+		<script src="../00-modele/js/react.development.js"></script>
+    <script src="../00-modele/js/react-dom.development.js"></script>
+    <script src="../00-modele/js/babel.js"></script>
+    <script type="text/babel">
+		//<![CDATA[
+		// Create component for button
+class Button extends React.Component {
+  render() {
+    return (
+      <fieldset>
+        <button
+          type={this.props.type || 'button'}
+          value={this.props.value || null}
+        >
+          {this.props.text}
+        </button>
+      </fieldset>
+    );
+  }
+};
+
+// Create component for datalist input
+class Datalist extends React.Component {
+  render() {
+    // Get all options from option prop
+    const dataOptions = this.props.options.split(', ');
+
+    // Generate list of options
+    const dataOptionsList = dataOptions.map((dataOption, index) => {
+      return <option key={index} value={dataOption} />
+    });
+
+    return (
+      <fieldset>
+        <Label
+          hasLabel={this.props.hasLabel}
+          htmlFor={this.props.htmlFor}
+          label={this.props.label}
+        />
+
+        <input list={this.props.htmlFor} />
+
+        <datalist
+          defaultValue=''
+          id={this.props.htmlFor}
+          name={this.props.name || null}
+          required={this.props.required || null}
+        >
+          <option value='' disabled>Choisir</option>
+
+          {dataOptionsList}
+        </datalist>
+      </fieldset>
+    );
+  }
+};
+
+// Create component for checkbox input
+class Checkbox extends React.Component {
+  render() {
+    return (
+      <fieldset>
+        <label
+          htmlFor={this.props.htmlFor}
+          label={this.props.label}
+        >
+          <input
+            id={this.props.htmlFor}
+            name={this.props.name || null}
+            required={this.props.required || null}
+            type='checkbox'
+          />
+          {this.props.label}
+        </label>
+      </fieldset>
+    );
+  }
+}
+
+// Create component for label
+class Label extends React.Component {
+  render() {
+    if (this.props.hasLabel === 'true') {
+      return <label htmlFor={this.props.htmlFor}>{this.props.label}</label>
+    }
+  }
+}
+
+// Create component for input
+class Input extends React.Component {
+  render() {
+    return (
+      <fieldset>
+        <Label
+          hasLabel={this.props.hasLabel}
+          htmlFor={this.props.htmlFor}
+          label={this.props.label}
+        />
+
+        <input
+          id={this.props.htmlFor}
+          maxLength={this.props.maxLength || null}
+          max={this.props.max || null}
+          min={this.props.min || null}
+          name={this.props.name || null}
+          placeholder={this.props.placeholder || null}
+          required={this.props.required || null}
+          step={this.props.step || null}
+          type={this.props.type || 'text'}
+        />
+      </fieldset>
+    );
+  }
+}
+
+// Create component for radio input
+class Radio extends React.Component {
+  render() {
+    return (
+      <fieldset>
+        <label
+          htmlFor={this.props.htmlFor}
+          label={this.props.label}
+        >
+          <input
+            id={this.props.htmlFor}
+            name={this.props.name || null}
+            required={this.props.required || null}
+            type='radio'
+          />
+          {this.props.label}
+        </label>
+      </fieldset>
+    );
+  }
+}
+
+// Create component for select input
+class Select extends React.Component {
+  render() {
+    // Get all options from option prop
+    const selectOptions = this.props.options.split(', ');
+
+    // Generate list of options
+    const selectOptionsList = selectOptions.map((selectOption, index) => {
+      return <option key={index} value={index}>{selectOption}</option>
+    });
+
+    return (
+      <fieldset>
+        <Label
+          hasLabel={this.props.hasLabel}
+          htmlFor={this.props.htmlFor}
+          label={this.props.label}
+        />
+
+        <select
+          defaultValue='-1'
+          id={this.props.htmlFor}
+          name={this.props.name || null}
+          required={this.props.required || null}
+        >
+          <option value='-1' disabled>Choisir</option>
+
+          {selectOptionsList}
+        </select>
+      </fieldset>
+    );
+  }
+};
+
+// Create component for textarea
+class Textarea extends React.Component {
+  render() {
+    return (
+      <fieldset>
+        <Label
+          hasLabel={this.props.hasLabel}
+          htmlFor={this.props.htmlFor}
+          label={this.props.label}
+        />
+
+        <textarea
+          cols={this.props.cols || null}
+          id={this.props.htmlFor}
+          name={this.props.name || null}
+          required={this.props.required || null}
+          rows={this.props.rows || null}
+        >
+        </textarea>
+      </fieldset>
+    );
+  }
+};
+
+// Create component for form
+class Form extends React.Component {
+  render() {
+    return (
+      <form method='POST' action='#'>
+        <Input
+          hasLabel='true'
+					name='nom'
+          htmlFor='textInput'
+          label='Text input'
+          required='true'
+          type='text'
+					maxLength='120'
+        />
+
+        <Input
+          hasLabel='true'
+					name='mail'
+          htmlFor='emailInput'
+          label='Email input'
+          required='true'
+          type='email'
+					maxLength='150'
+        />
+
+        <Input
+          hasLabel='true'
+          htmlFor='numberInput'
+          label='Number input'
+          required='true'
+					name='value'
+          type='number'
+          min='0.5'
+          max='100'
+          step='0.5'
+        />
+
+        <Input
+          hasLabel='true'
+          htmlFor='passwordInput'
+          label='Password'
+          required='true'
+					name='pass'
+          type='password'
+					maxLength='30'
+        />
+
+        <Select
+          hasLabel='true'
+          htmlFor='select'
+          label='Select'
+          options='Minerva McGonagall, Severus Snape, Rubeus Hagrid, Remus Lupin, Horace Slughorn'
+          required='true'
+        />
+
+        <Datalist
+          hasLabel='true'
+          htmlFor='datalist'
+          label='Datalist-HP'
+          options='Harry Potter, Hermione Granger, Ron Weasley, Minerva McGonagall, Neville Longbottom, Ginny Weasley, Sirius Black'
+          required='true'
+        />
+
+        <Textarea
+          hasLabel='true'
+          htmlFor='textarea'
+          label='Textarea'
+          required='true'
+        />
+
+				<Input
+          hasLabel='true'
+          htmlFor='check'
+          label='check'
+          required='true'
+					name='news'
+          type='checkbox'
+        />
+
+				<Input
+          hasLabel='true'
+          htmlFor='radio0'
+          label='Radio 0'
+          required='true'
+					name='radios'
+          type='radio'
+        />
+
+        <Radio
+          hasLabel='true'
+          htmlFor='radioOne'
+          label='Radio one'
+          name='radios'
+          required='true'
+        />
+
+        <Radio
+          hasLabel='true'
+          htmlFor='radioTwo'
+          label='Radio two'
+          name='radios'
+          required='true'
+        />
+
+        <Button
+          type='submit'
+          value='submit'
+          text='Send form'
+        />
+      </form>
+    )
+  }
+}
+
+// Render Form component
+ReactDOM.render(<Form />, document.querySelector('.form'));
+    //  ]]>
+    </script>
+	</body>
+</html>

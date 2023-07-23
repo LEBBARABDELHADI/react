@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React.JS</title>
+		<meta name="description" content="React.JS." />
+		<meta name="keywords" content="menu, navigation, hover, effect, animation, javascript, css, web design" />
+		<meta name="author" content="sbrunet" />
+		<link rel="icon" type="image/png" href="../00-modele/chapoulougne.png" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Quicksand:500" rel="stylesheet">
+		<link rel="stylesheet"  href="../00-modele/css/normalize.css" />
+		<link rel="stylesheet"  href="../00-modele/css/demo.css" />
+		<link rel="stylesheet"  href="../00-modele/css/style-menu.css" />
+
+		<link rel="stylesheet"  href="style.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
+	</head>
+	<body class="demo-ama"  onload="menu()">
+
+		<main>
+			<div class="content content--fixed">
+				<header class="codrops-header">
+
+					<h1 class="codrops-header__title">React.JS </h1>
+					<h2 class="title"> <span>Chap 04</span> State </h2>
+				</header>
+			</div>
+			<section class="content">
+				<nav class="menu menu--ama">
+					<!-- insertion du menu -->
+				</nav>
+				<article>
+				<h3> Hooks</h3>
+				Les Hooks sont une nouveauté de React 16.8. <br />
+				useRef.<br />
+
+		 	nous devons enregistrer quelque chose sur la console à un intervalle particulier lorsqu'un composant particulier est monté
+				 <article id="job"></article>
+				</article>
+			</section>
+		</main>
+		<script src="menu.js"></script>
+		<script src="../00-modele/js/charming.min.js"></script>
+		<script src="../00-modele/js/anime.min.js"></script>
+		<script src="../00-modele/js/demo.js"></script>
+		<script src="../00-modele/js/demo-ama.js"></script>
+		<script  src="../00-modele/js/react.development.js"></script>
+    <script  src="../00-modele/js/react-dom.development.js"></script>
+    <script  src="../00-modele/js/babel.js"></script>
+    <script type="text/babel">
+
+    //<![CDATA[
+		// le hook useState
+
+		function Minuteur() {
+				// Définition de la référence
+				const intervalRef = React.useRef();
+				const [timer, setTimer] = React.useState(30);
+
+				React.useEffect(() => {
+					const id = setInterval(() => {
+						// On décrémente le minuteur géré par le state
+						setTimer((oldTimer) => oldTimer - 1);
+					}, 1000);
+
+					// Mise à jour de la référence
+					intervalRef.current = id;
+					return () => {
+						// Arrêt du ‘timer’ en cas de suppression ou réaffichage du composant
+						clearInterval(intervalRef.current);
+					};
+				}, []);
+
+				// Fonction permettant d'arrêter le ‘timer’
+				const stopTimer = () => {
+					clearInterval(intervalRef.current);
+				};
+
+				return (
+					<div>
+						{/* Le timer est affiché ici */}
+						<p>Il reste : {timer} secondes</p>
+						{/* En cliquant sur ce bouton, le minuteur (et donc l'intervalle) sera arrêté */}
+						<button onClick={stopTimer}> STOP ! </button>
+					</div>
+				);
+				}
+				ReactDOM.createRoot(document.querySelector("#job")).render(<Minuteur />)
+
+  //  ]]>
+    </script>
+	</body>
+</html>

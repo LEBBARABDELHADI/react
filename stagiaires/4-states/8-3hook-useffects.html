@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React.JS</title>
+		<meta name="description" content="React.JS." />
+		<meta name="keywords" content="menu, navigation, hover, effect, animation, javascript, css, web design" />
+		<meta name="author" content="sbrunet" />
+		<link rel="icon" type="image/png" href="../00-modele/chapoulougne.png" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Quicksand:500" rel="stylesheet">
+		<link rel="stylesheet"  href="../00-modele/css/normalize.css" />
+		<link rel="stylesheet"  href="../00-modele/css/demo.css" />
+		<link rel="stylesheet"  href="../00-modele/css/style-menu.css" />
+
+		<link rel="stylesheet"  href="style.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
+	</head>
+	<body class="demo-ama"  onload="menu()">
+
+		<main>
+			<div class="content content--fixed">
+				<header class="codrops-header">
+
+					<h1 class="codrops-header__title">React.JS </h1>
+					<h2 class="title"> <span>Chap 04</span> State </h2>
+				</header>
+			</div>
+			<section class="content">
+				<nav class="menu menu--ama">
+					<!-- insertion du menu -->
+				</nav>
+				<article>
+				<h3> Hooks</h3>
+				Les Hooks sont une nouveauté de React 16.8. <br />
+				useEffect. Celui-ci prend deux paramètres :<br />
+
+		 		Une fonction dont le rôle est d’appliquer les effets attendus ;<br />
+				 Cette fonction peut retourner une autre fonction dont le rôle sera de nettoyer <br />
+				 (typiquement le disconnect après le connect) ;
+		 	 	Un tableau des dépendances (qui fonctionne exactement sur le même modèle que useCallback et useMemo) <br />
+				pour n’exécuter l’effet que si une des dépendances a changé de valeur ;
+				 <article id="job"></article>
+				</article>
+			</section>
+		</main>
+		<script src="menu.js"></script>
+		<script src="../00-modele/js/charming.min.js"></script>
+		<script src="../00-modele/js/anime.min.js"></script>
+		<script src="../00-modele/js/demo.js"></script>
+		<script src="../00-modele/js/demo-ama.js"></script>
+		<script  src="../00-modele/js/react.development.js"></script>
+    <script  src="../00-modele/js/react-dom.development.js"></script>
+    <script  src="../00-modele/js/babel.js"></script>
+    <script type="text/babel">
+
+    //<![CDATA[
+		// le hook useState
+
+				const Agents = () => {
+				  //à vous
+
+				  //à vous(() => {
+				    const getDatas = async () => {
+				      // we simulate an API return after 1.5 secondes
+				      const res = await new Promise(resolve => {
+				        setTimeout(() => {
+				          resolve([
+										'001 : Edward Donne',
+										'002 : Bill Fairbanks',
+										'003 : Jason Walters, Jack Mason',
+										'004 : Aidan Flemmings',
+										'005 : Stuart Thomas',
+										'006 : Alec Trevelyan (Film)',
+										'007 : James Bond',
+										'008 : Bill Timothy',
+										'009 : Peter Smith',
+										'0010 : John Wolfgramm',
+										'0011 : Cederic',
+										'0012 : Sam Johnston',
+										'0013 : Briony Thorne',
+				          ]);
+				        }, 1500);
+				      });
+				      //à vous
+				    };
+
+				    getDatas();
+				  }, []);
+
+				  return (
+				    <div>
+				      {/*{rows?.map((r, i) => (*/}
+				      {rows.map((r, i) => (
+				        <div key={i}>{r}</div>
+				      ))}
+				    </div>
+				  );
+				};
+
+				ReactDOM.createRoot(document.querySelector("#job")).render(<Agents />)
+
+  //  ]]>
+    </script>
+	</body>
+</html>
