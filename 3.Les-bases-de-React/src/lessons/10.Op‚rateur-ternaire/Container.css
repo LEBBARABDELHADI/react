@@ -1,0 +1,18 @@
+label,
+input,
+button {
+  display: block;
+}
+label,
+button,
+input,
+p {
+  margin-bottom: 10px;
+}
+
+.colorRed {
+  color: red;
+}
+.colorBlue {
+  color: blueviolet;
+}
