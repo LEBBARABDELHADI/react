@@ -1,1 +1,4 @@
 this is config file for test
+parma1 =toto
+parma2 =aman
+parma3 =aman
