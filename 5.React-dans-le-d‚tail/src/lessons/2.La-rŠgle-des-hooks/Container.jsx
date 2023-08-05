@@ -9,7 +9,6 @@ export default function Container() {
   return (
     <div>
       <h1>Les règles des Hooks</h1>
-
     </div>
   )
 }
