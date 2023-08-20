@@ -1,0 +1,15 @@
+.mainBG {
+  margin-top: 0.2rem;
+  padding-bottom: 0.9rem;
+}
+.mainboth {
+  display: flex;
+}
+.textInput {
+  flex-grow: 1;
+  padding-right: 0.2rem;
+  margin-right: 1rem;
+}
+p {
+  margin-bottom: 1rem;
+}

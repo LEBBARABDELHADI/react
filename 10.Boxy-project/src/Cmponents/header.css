@@ -1,0 +1,10 @@
+.header {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: white;
+  border-bottom: whitesmoke;
+  border-bottom-width: 2rem;
+  border-radius: 2px;
+  padding: 0.66rem;
+}

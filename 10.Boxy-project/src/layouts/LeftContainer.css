@@ -1,0 +1,38 @@
+.firstLeftContainer {
+  position: relative;
+  width: 600px;
+  height: 460px;
+  background-color: whitesmoke;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border-color: grey;
+  margin-top: 5rem;
+}
+
+/* pour un écran medium et grande taille  */
+@media (min-width: 768px) {
+  .firstLeftContainer {
+    margin-top: 0rem;
+  }
+}
+.buttons {
+  display: flex;
+  position: absolute;
+  transform: translateY(-100%);
+}
+.buttonShadBox {
+  min-width: 125px;
+  font-weight: bold;
+  border-top-width: 1px;
+  border-color: whitesmoke;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin-right: 1rem;
+  background-color: rgb(255, 251, 251);
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  /* padding: 2rem; */
+}

@@ -7,6 +7,7 @@ export default function Container() {
       setcount((count) => count + 1);
     }, 1000);
     return () => {
+      console.log("toto");
       clearInterval(id);
     };
   }, []);

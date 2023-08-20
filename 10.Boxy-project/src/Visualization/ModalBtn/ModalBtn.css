@@ -1,0 +1,12 @@
+.model {
+  margin-right: 145px;
+  margin-left: 135px;
+}
+
+/* pour un écran medium et grande taille  */
+@media (min-width: 768px) {
+  .model {
+    margin-right: 115px;
+    margin-left: 155px;
+  }
+}

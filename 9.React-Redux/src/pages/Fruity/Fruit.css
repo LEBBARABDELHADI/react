@@ -1,0 +1,18 @@
+.cartdown {
+  border-radius: 5px;
+  background-color: white;
+}
+.fruitp {
+  font-size: 1.1rem;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}
+
+.fruitprice {
+  font-size: 1.1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 1.3rem;
+}

@@ -1,0 +1,9 @@
+.boxPanel {
+  border-bottom-width: 1px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.pbox {
+  font-weight: bold;
+}
