@@ -8,6 +8,8 @@ import Analytics from "./pages/Analytics/Analytics.jsx";
 import Development from "./pages/Analytics/Development.jsx";
 import CyberSecurity from "./pages/Analytics/CyberSecurity.jsx";
 import UIUX from "./pages/Analytics/UIUX.jsx";
+import RouteSimulation from "./RouteSimulation.jsx";
+
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +23,7 @@ function App() {
           <Route path="/Analytics/cyberSecurity" element={<CyberSecurity />} />
           <Route path="/Analytics/uiux" element={<UIUX />} />
         </Route>
+        <Route path="/simulation" element={<RouteSimulation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

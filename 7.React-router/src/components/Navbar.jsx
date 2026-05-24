@@ -24,6 +24,9 @@ export default function Navbar() {
       >
         Contact
       </Link>
+      <Link className="mx-2 text-semibold text-md text-blue-700 font-semibold" to="/simulation">
+        Simulation
+      </Link>
     </nav>
   );
 }
